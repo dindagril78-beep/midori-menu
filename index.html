@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Midori Menu</title>
+<script src="https://telegram.org/js/telegram-web-app.js"></script>
+<style>
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  padding: 18px;
+  font-family: system-ui, sans-serif;
+  color: #174b31;
+  background: linear-gradient(145deg,#eaffef,#fdf5ff,#e1ffe8);
+}
+header {
+  text-align: center;
+  padding: 18px 12px;
+  border-radius: 24px;
+  background: #ffffffd9;
+  border: 2px solid #a7e8b5;
+  box-shadow: 0 5px 18px #6ebd8340;
+}
+.mascot { font-size: 65px; }
+h1 { margin: 4px 0; color: #168342; }
+p { margin: 6px 0; }
+.note {
+  margin-top: 12px;
+  padding: 10px;
+  border-radius: 14px;
+  background: #e0f9d8;
+  font-size: 14px;
+}
+h2 { text-align: center; margin: 22px 0 12px; }
+.menu {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+button {
+  border: 2px solid #a5e5b1;
+  border-radius: 20px;
+  padding: 15px 8px;
+  background: linear-gradient(145deg,#fff,#f0ffe9);
+  color: #15552f;
+  box-shadow: 0 4px 0 #b4d9b7;
+  font-weight: 700;
+  font-size: 15px;
+  min-height: 112px;
+}
+button:active { transform: translateY(3px); box-shadow: none; }
+.icon { display: block; font-size: 32px; margin-bottom: 5px; }
+.sub { display: block; font-size: 12px; font-weight: 500; margin-top: 4px; }
+footer { text-align: center; margin: 22px 0 8px; font-size: 13px; }
+</style>
+</head>
+<body>
+<header>
+  <div class="mascot">🌿🐱</div>
+  <h1>Midori 💚</h1>
+  <p>Solana Watch Bot</p>
+  <div class="note">
+    ⭐ Mode simulasi saja, ya!<br>
+    Pantau token dengan bijak.
+  </div>
+</header>
+
+<h2>🍀 Menu Utama 🍀</h2>
+<div class="menu">
+  <button onclick="send('/help')">
+    <span class="icon">💚❔</span>/help
+    <span class="sub">Bantuan & Panduan</span>
+  </button>
+  <button onclick="send('/scan')">
+    <span class="icon">🔍</span>/scan
+    <span class="sub">Scan Token</span>
+  </button>
+  <button onclick="send('/new')">
+    <span class="icon">📣🚀</span>/new
+    <span class="sub">Token Baru</span>
+  </button>
+  <button onclick="send('/tokens')">
+    <span class="icon">🪙🐱</span>/tokens
+    <span class="sub">Daftar Pantauan</span>
+  </button>
+  <button onclick="send('/risk')">
+    <span class="icon">⚠️</span>/risk
+    <span class="sub">Cek Risiko Token</span>
+  </button>
+  <button onclick="send('/watch')">
+    <span class="icon">⏱️💚</span>/watch
+    <span class="sub">Pantau Token</span>
+  </button>
+  <button onclick="send('/unwatch')">
+    <span class="icon">📋❌</span>/unwatch
+    <span class="sub">Hentikan Pantauan</span>
+  </button>
+  <button onclick="send('/positions')">
+    <span class="icon">📊🪙</span>/positions
+    <span class="sub">Posisi Simulasi</span>
+  </button>
+  <button onclick="send('/paperbuy')">
+    <span class="icon">🛒🌱</span>/paperbuy
+    <span class="sub">Beli Simulasi</span>
+  </button>
+  <button onclick="send('/balance')">
+    <span class="icon">💰</span>/balance
+    <span class="sub">Saldo Simulasi</span>
+  </button>
+</div>
+
+<footer>🍀 Midori — Pantau, Analisis, Lebih Cerdas! 🍀</footer>
+
+<script>
+const tg = window.Telegram.WebApp;
+tg.ready();
+tg.expand();
+
+function send(command) {
+  if (tg && tg.sendData) {
+    tg.sendData(command);
+  } else {
+    alert("Buka menu ini dari Telegram untuk menggunakan tombol.");
+  }
+}
+</script>
+</body>
+</html>
